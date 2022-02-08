@@ -26,20 +26,6 @@ app.get('', (req,res) => {
     })
 })
 
-app.get('/about', (req, res) => {
-    res.render('about', {
-        title: 'About me',
-        name: 'Jabulani Charinga'
-    })
-})
-
-app.get('/help', (req, res) => {
-    res.render('help', {
-        message: 'Tis is some helpful text',
-        title: 'help',
-        name: 'Jabulani Charinga'
-    })
-})
 
 app.get('/weather', (req, res) => {
     if(!req.query.address){
@@ -66,24 +52,6 @@ app.get('/weather', (req, res) => {
 
 })
 
-app.get('/products', (req, res) => {
-    if(!req.query.search){
-  return res.send({
-      error: 'you must provide a search term'
-  })
-    }
-    console.log(req.query)
-res.send({
-    products: []
-})
-})
-app.get('/help/*', (req, res) => {
-    res.render('404', {
-        title: '404 ',
-        name: "Jabulani Charinga",
-        errorMessage: 'help article not found'
-    })
-})
 app.get('*',(req, res) =>{
  res.render('404',{
      title: '404',
